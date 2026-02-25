@@ -1,0 +1,63 @@
+// Ecuacioncuadratica.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
+//
+
+#include <iostream>
+
+//Prototipos de funciones
+double discriminante(int a, int b, int c);
+double unica(int b, int a);
+double solucionreal(int a, int b, int c, double d, double &X2);
+double solucionimag(int a, int b, int c, double d, double &X2);
+
+using namespace std; 
+
+int main()
+{
+    int a, b, c;
+    double d, X1, X2;
+
+    cout << "Ingrese a:";
+    cin >> a;
+    cout << "Ingrese b:";
+    cin >> b;
+    cout << "Ingrese c:";
+    cin >> c;
+    // Llamada a la función
+    d = discriminante(a, b, c); //Colocar solo el nombre de la variable
+    if (d == 0) 
+        cout << "La solucion unica es:" << unica(b, a);
+    else 
+        if (d > 0) {
+            X1 = solucionreal(a, b, c, d, X2);
+            cout << "Las soluciones reales son:" << endl; 
+            cout << "X1= " << X1 << endl; 
+            cout << "X2= " << X2 << endl;
+        }
+        else {
+            X1 = solucionimag(a, b, c, d, X2);
+            cout << "Las soluciones imaginarias son:" << endl;
+            cout << "X1= " << X1 << "+"<< X2 <<"i"<< endl;
+            cout << "X1= " << X1 << "-"<< X2 <<"i"<< endl;
+        }
+
+}
+
+//Declaración de funciones
+double discriminante(int a, int b, int c) {
+    double d = b * b - (4 * a * c);
+    return d; 
+}
+double unica(int b, int a) {
+    return -b / (2 * a); 
+}
+double solucionreal(int a, int b, int c, double d, double& X2) {
+    double X1 = (- b + sqrt(d)) / (2 * a);
+    X2 = (-b - sqrt(d)) / (2 * a);
+    return X1; 
+}
+double solucionimag(int a, int b, int c, double d, double& X2) {
+    double X1 = -b / (2 * a); 
+    X2 = sqrt(-d) / (2 * a); 
+    a = 5;
+    return X1;
+}

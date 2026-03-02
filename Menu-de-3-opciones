@@ -1,0 +1,62 @@
+'''
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+'''
+def chatbot():
+    
+    opcion = -1
+
+    while (opcion != 0):
+        print("\n" + "="*20)
+        print("      MENU")
+        print("="*20)
+        print("1. Factorial")
+        print("2. Tabla de sumar (1-10)")
+        print("3. Suma de cuadrados")
+        print("0. Salir")
+        
+        try:
+            opcion = int(input("\nIngrese la opción: "))
+
+            if (opcion == 1):
+                num = int(input("Ingrese el número: "))
+                print(f"Resultado: {factorial(num)}")
+
+            elif (opcion == 2):
+                num = int(input("¿De qué número?: "))
+                tabla_sumar_recursiva(num)
+
+            elif (opcion == 3):
+                num = int(input("Ingrese N: "))
+                print(f"S = {suma_cuadrados(num)}")
+
+            elif (opcion == 0):
+                print("Saliendo...")
+
+            else:
+                print("Opción inválida")
+                
+        except ValueError:
+            print("Error: Ingrese un número entero.")
+
+#  FUNCIONES RECURSIVAS 
+
+def factorial(n):
+    if n <= 1: return 1
+    return n * factorial(n - 1)
+
+def tabla_sumar_recursiva(n, i=1):
+    if i <= 10:
+        print(f"{n} + {i} = {n + i}")
+        tabla_sumar_recursiva(n, i + 1)
+
+def suma_cuadrados(n):
+    if n == 1: return 1
+    return (n ** 2) + suma_cuadrados(n - 1)
+
+if __name__ == "__main__":
+    chatbot()

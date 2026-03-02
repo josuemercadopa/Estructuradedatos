@@ -1,0 +1,30 @@
+'''
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+'''
+def factorial(n):
+    # Caso base: para evitar que la función se llame infinitamente
+    if n == 0 or n == 1:
+        return 1
+    # Caso recursivo: n * (n-1)!
+    else:
+        return n * factorial(n - 1)
+
+# Solicitar el valor al usuario
+try:
+    numero = int(input("Ingresá el número para calcular su factorial: "))
+
+    if numero < 0:
+        print("Lo siento, el factorial no está definido para números negativos.")
+    else:
+        resultado = factorial(numero)
+        print(f"El factorial de {numero} es {resultado}")
+
+except ValueError:
+    print("¡Error! Por favor, ingresá un número entero válido.")
+    
+    

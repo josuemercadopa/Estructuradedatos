@@ -16,19 +16,27 @@ private: // Agregado por buena práctica, aunque opcional**********
     almacen alma; 
 
 public:
-    Queue() {
+    Queue();
+    ~Queue();
+    int put(char d);
+    int get();
+    int empty();   
+    int size();
+};
+
+Queue::Queue() {
         cabeza = 0;
         cola = 0;
         ITEMS = 0;
     }
 
-    ~Queue() {}
+Queue::~Queue() {}
 
-    int empty() { return ITEMS == 0; }
+int Queue::empty() { return ITEMS == 0; }
 
     // Insertar elemento
     
-    int put(char d) // Cambiado a char para coincidir con el almacen********************
+int Queue::put(char d) // Cambiado a char para coincidir con el almacen********************
 {
     if ( ITEMS == MAX_SIZE) return -1;
     if ( cola >= MAX_SIZE) { cola = 0; }
@@ -40,7 +48,7 @@ public:
 
     // retirar elemento
     
-    int get() {
+int Queue::get() {
         if (empty()) return -1; 
         
         char d = alma[cabeza];
@@ -51,8 +59,8 @@ public:
 
     // regresa el n£mero de elementos en lista
     
-    int size() { return ITEMS; }
-}; 
+int Queue::size() { return ITEMS; }
+
 
 int main() {
     Queue q;
